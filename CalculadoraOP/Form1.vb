@@ -132,13 +132,16 @@
             txtNumero.Clear()
             txtDetalle.Text = num1 & " + "
         End If
-
     End Sub
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
-        Operador = 2
-        num1 = txtNumero.Text
-        txtNumero.Clear()
-        txtDetalle.Text = num1 & " - "
+        If txtDetalle.Text.IndexOf("/") Then
+            txtNumero.Text = "-" & txtNumero.Text
+        Else
+            Operador = 2
+            num1 = txtNumero.Text
+            txtNumero.Clear()
+            txtDetalle.Text = num1 & " - "
+        End If
     End Sub
     Private Sub btnMultiplicar_Click(sender As Object, e As EventArgs) Handles btnMultiplicar.Click
         Operador = 3
@@ -179,7 +182,6 @@
                                 txtNumero.Text = Resultado
                                 txtDetalle.Text &= num2
                             Else
-
                             End If
                         End If
                     End If
@@ -240,7 +242,6 @@
         mmenos = 0
         txtNumero.Text = 0
         txtDetalle.Text = ""
-
     End Sub
     Private Sub btnMR_Click(sender As Object, e As EventArgs) Handles btnMR.Click
         txtNumero.Text = ms
@@ -250,11 +251,6 @@
         ms = Val(txtNumero.Text)
         txtDetalle.Text = "M"
     End Sub
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub btnMmas_Click(sender As Object, e As EventArgs) Handles btnMmas.Click
         mmas = Val(txtNumero.Text) + ms
         txtNumero.Text = mmas
@@ -265,7 +261,6 @@
         txtNumero.Text = mmenos
         txtDetalle.Text = "M-"
     End Sub
-
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown 'Codigo para introducir numeros y operaciones por teclado
         Select Case e.KeyData
             Case Keys.NumPad0, Keys.D0
@@ -330,13 +325,9 @@
                 btnIgual.Focus()
         End Select
     End Sub
-
     Private Sub CientíficaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CientíficaToolStripMenuItem.Click
         Cientifica.Show()
         Me.Close()
     End Sub
-
-
-
 End Class
 

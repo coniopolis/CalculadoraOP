@@ -132,10 +132,14 @@
         txtDetalle.Text &= num1 & " + "
     End Sub
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
-        Operador = 2
-        num1 = txtNumero.Text
-        txtNumero.Clear()
-        txtDetalle.Text = num1 & " - "
+        If txtDetalle.Text.IndexOf("/") Then
+            txtNumero.Text = "-" & txtNumero.Text
+        Else
+            Operador = 2
+            num1 = txtNumero.Text
+            txtNumero.Clear()
+            txtDetalle.Text = num1 & " - "
+        End If
     End Sub
     Private Sub btnMultiplicar_Click(sender As Object, e As EventArgs) Handles btnMultiplicar.Click
         Operador = 3
@@ -223,7 +227,7 @@
     End Sub
     Private Sub btnX2_Click(sender As Object, e As EventArgs) Handles btnX2.Click
         txtDetalle.Text = "" & txtNumero.Text & "²"
-        txtNumero.Text = Math.Sqrt(txtNumero.Text)
+        txtNumero.Text = txtNumero.Text * txtNumero.Text
     End Sub
     Private Sub btnX3_Click(sender As Object, e As EventArgs) Handles btnX3.Click
         num1 = txtNumero.Text
@@ -290,11 +294,6 @@
     Private Sub btnMR_Click(sender As Object, e As EventArgs) Handles btnMR.Click
         txtNumero.Text = ms
     End Sub
-
-    Private Sub Cientifica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub btnMS_Click(sender As Object, e As EventArgs) Handles btnMS.Click
         ms = Val(txtNumero.Text)
         txtDetalle.Text = "M"
@@ -309,6 +308,16 @@
         txtNumero.Text = mmenos
         txtDetalle.Text = "M-"
     End Sub
+    Private Sub btn2nd_Click(sender As Object, e As EventArgs) Handles btn2nd.Click
+        If btnX2.Text.IndexOf("x²") Then
+            btnX2.Text = "²√ₓ"
+        Else
+            Exit Sub
+        End If
+
+    End Sub
+
+
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown 'Codigo para introducir numeros y operaciones por teclado
         Select Case e.KeyData
             Case Keys.NumPad0, Keys.D0
@@ -371,5 +380,4 @@
                 btnComa.PerformClick()
         End Select
     End Sub
-
 End Class

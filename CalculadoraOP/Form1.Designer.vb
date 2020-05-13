@@ -629,7 +629,6 @@ Partial Class Estandar
         Me.Name = "Estandar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Calculadora"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
