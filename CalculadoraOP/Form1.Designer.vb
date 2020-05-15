@@ -187,13 +187,13 @@ Partial Class Estandar
         'VerLaAyudaToolStripMenuItem
         '
         Me.VerLaAyudaToolStripMenuItem.Name = "VerLaAyudaToolStripMenuItem"
-        Me.VerLaAyudaToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.VerLaAyudaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.VerLaAyudaToolStripMenuItem.Text = "Ver la ayuda"
         '
         'AcerdaDeCalculadoraToolStripMenuItem
         '
         Me.AcerdaDeCalculadoraToolStripMenuItem.Name = "AcerdaDeCalculadoraToolStripMenuItem"
-        Me.AcerdaDeCalculadoraToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.AcerdaDeCalculadoraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AcerdaDeCalculadoraToolStripMenuItem.Text = "Acerca de"
         '
         'SalirToolStripMenuItem

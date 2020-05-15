@@ -76,7 +76,7 @@ Partial Class Cientifica
         Me.btnReciproco = New System.Windows.Forms.Button()
         Me.btnSigno = New System.Windows.Forms.Button()
         Me.btnMod = New System.Windows.Forms.Button()
-        Me.btnX = New System.Windows.Forms.Button()
+        Me.btnAbs = New System.Windows.Forms.Button()
         Me.btnExp = New System.Windows.Forms.Button()
         Me.btnX3 = New System.Windows.Forms.Button()
         Me.btnLN = New System.Windows.Forms.Button()
@@ -647,17 +647,17 @@ Partial Class Cientifica
         Me.btnMod.Text = "mod"
         Me.btnMod.UseVisualStyleBackColor = True
         '
-        'btnX
+        'btnAbs
         '
-        Me.btnX.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnX.Location = New System.Drawing.Point(143, 208)
-        Me.btnX.Name = "btnX"
-        Me.btnX.Size = New System.Drawing.Size(60, 30)
-        Me.btnX.TabIndex = 96
-        Me.btnX.Text = "|x|"
-        Me.btnX.UseVisualStyleBackColor = True
+        Me.btnAbs.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnAbs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAbs.Location = New System.Drawing.Point(143, 208)
+        Me.btnAbs.Name = "btnAbs"
+        Me.btnAbs.Size = New System.Drawing.Size(60, 30)
+        Me.btnAbs.TabIndex = 96
+        Me.btnAbs.Text = "|x|"
+        Me.btnAbs.UseVisualStyleBackColor = True
         '
         'btnExp
         '
@@ -771,7 +771,7 @@ Partial Class Cientifica
         Me.Controls.Add(Me.btnReciproco)
         Me.Controls.Add(Me.btnSigno)
         Me.Controls.Add(Me.btnMod)
-        Me.Controls.Add(Me.btnX)
+        Me.Controls.Add(Me.btnAbs)
         Me.Controls.Add(Me.btnExp)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -877,7 +877,7 @@ Partial Class Cientifica
     Friend WithEvents btnReciproco As Button
     Friend WithEvents btnSigno As Button
     Friend WithEvents btnMod As Button
-    Friend WithEvents btnX As Button
+    Friend WithEvents btnAbs As Button
     Friend WithEvents btnExp As Button
     Friend WithEvents btnX3 As Button
     Friend WithEvents btnLN As Button
