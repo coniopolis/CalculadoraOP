@@ -168,18 +168,30 @@
         Operador = 1
         num1 = txtNumero.Text
         txtNumero.Clear()
-        txtDetalle.Text &= num1 & " + "
+        txtDetalle.Text = num1 & " + "
     End Sub
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
         Try
-            'If txtDetalle.Text.IndexOf("/") Then
-            '    txtNumero.Text = "-" & txtNumero.Text
-            'Else
-            Operador = 2
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "-"
+                btnIgual.Focus()
+            ElseIf Val(txtNumero.Text) < 0 Then
+                Operador = 2
                 num1 = txtNumero.Text
                 txtNumero.Clear()
                 txtDetalle.Text = num1 & " - "
-            'End If
+                btnIgual.Focus()
+            ElseIf Val(txtNumero.Text) > 0 Then
+                Operador = 2
+                num1 = txtNumero.Text
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " - "
+                btnIgual.Focus()
+            ElseIf txtNumero.Text = "" Then
+                txtNumero.Text = "-" & txtNumero.Text
+                btnIgual.Focus()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

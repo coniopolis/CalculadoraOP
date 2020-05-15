@@ -119,11 +119,17 @@
 
 
     Private Sub btnC_Click(sender As Object, e As EventArgs) Handles btnC.Click
-        txtNumero.Text = "0"
-        txtDetalle.Text = String.Empty
-        Operador = 0.0
-        num1 = 0.0
-        num2 = 0.0
+        Try
+
+
+            txtNumero.Text = "0"
+            txtDetalle.Text = String.Empty
+            Operador = 0.0
+            num1 = 0.0
+            num2 = 0.0
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
 
@@ -144,7 +150,6 @@
         End Try
     End Sub
 
-
     Private Sub btnSuma_Click(sender As Object, e As EventArgs) Handles btnSuma.Click
         If txtNumero.Text = "" Then
             Exit Sub
@@ -156,47 +161,32 @@
         End If
     End Sub
 
-
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "-"
-            btnIgual.Focus()
-            Exit Sub
-        Else
-            If txtDetalle.Text.IndexOf("/") > 0 Then
-                txtNumero.Text = "-" & (txtNumero.Text)
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "-"
                 btnIgual.Focus()
-                Exit Sub
-
-            Else
-                If txtDetalle.Text.IndexOf("×") > 0 Then
-                    txtNumero.Text = "-" & (txtNumero.Text)
-                    btnIgual.Focus()
-                    Exit Sub
-
-                Else
-                    If txtNumero.Text.IndexOf("-") > 0 Then
-                        Operador = 2
-                        num1 = Val(txtNumero.Text)
-                        txtNumero.Clear()
-                        txtDetalle.Text = num1 & " - "
-                        btnIgual.Focus()
-                    Else
-                        If txtNumero.Text <> "0" Then
-                            Operador = 2
-                            num1 = Val(txtNumero.Text)
-                            txtNumero.Clear()
-                            txtDetalle.Text = num1 & " - "
-                            btnIgual.Focus()
-                        Else
-                        End If
-                    End If
-                End If
+            ElseIf Val(txtNumero.Text) < 0 Then
+                Operador = 2
+                num1 = txtNumero.Text
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " - "
+                btnIgual.Focus()
+            ElseIf Val(txtNumero.Text) > 0 Then
+                Operador = 2
+                num1 = txtNumero.Text
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " - "
+                btnIgual.Focus()
+            ElseIf txtNumero.Text = "" Then
+                txtNumero.Text = "-" & txtNumero.Text
+                btnIgual.Focus()
             End If
-        End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
-
 
     Private Sub btnMultiplicar_Click(sender As Object, e As EventArgs) Handles btnMultiplicar.Click
         Operador = 3
@@ -215,33 +205,39 @@
 
 
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
-        num2 = txtNumero.Text
         Try
+
             If txtNumero.Text = "" Then
-                txtNumero.Text = num1
+                txtDetalle.Text &= txtDetalle.Text
             Else
                 num2 = txtNumero.Text
 
-                If Operador = 1 Then
-                    Resultado = (num1) + (num2)
-                    txtNumero.Text = Resultado
-                    txtDetalle.Text &= num2
+                If txtNumero.Text = "" Then
+                    txtNumero.Text = num1
                 Else
-                    If Operador = 2 Then
-                        Resultado = (num1) - (num2)
+                    num2 = txtNumero.Text
+
+                    If Operador = 1 Then
+                        Resultado = (num1) + (num2)
                         txtNumero.Text = Resultado
                         txtDetalle.Text &= num2
                     Else
-                        If Operador = 3 Then
-                            Resultado = (num1) * (num2)
+                        If Operador = 2 Then
+                            Resultado = (num1) - (num2)
                             txtNumero.Text = Resultado
                             txtDetalle.Text &= num2
                         Else
-                            If Operador = 4 Then
-                                Resultado = (num1) / (num2)
+                            If Operador = 3 Then
+                                Resultado = (num1) * (num2)
                                 txtNumero.Text = Resultado
                                 txtDetalle.Text &= num2
                             Else
+                                If Operador = 4 Then
+                                    Resultado = (num1) / (num2)
+                                    txtNumero.Text = Resultado
+                                    txtDetalle.Text &= num2
+                                Else
+                                End If
                             End If
                         End If
                     End If
