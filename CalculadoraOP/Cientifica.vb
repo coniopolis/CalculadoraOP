@@ -13,71 +13,106 @@
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
+    Private Sub VerLaAyudaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerLaAyudaToolStripMenuItem.Click
+        MessageBox.Show("Disponible en la proxima version", "Ayuda")
+    End Sub
     Private Sub AcerdaDeCalculadoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcerdaDeCalculadoraToolStripMenuItem.Click
-        MessageBox.Show("Calculadora de Lautaro Martinez, Mayo 2020", "Acerda de")
+        MessageBox.Show("Calculadora de Lautaro Martinez, Mayo 2020, Version 1.2", "Acerda de")
     End Sub
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
-        If txtNumero.Text <> "0" And txtNumero.Text <> "" Then
-            txtNumero.Text &= "0"
-        Else
-            txtNumero.Text = "0"
-        End If
+        Try
+            If txtNumero.Text <> "0" And txtNumero.Text <> "" Then
+                txtNumero.Text &= "0"
+            Else
+                txtNumero.Text = "0"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "1"
-        Else
-            txtNumero.Text &= "1"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "1"
+            Else
+                txtNumero.Text &= "1"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "2"
-        Else
-            txtNumero.Text &= "2"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "2"
+            Else
+                txtNumero.Text &= "2"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "3"
-        Else
-            txtNumero.Text &= "3"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "3"
+            Else
+                txtNumero.Text &= "3"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "4"
-        Else
-            txtNumero.Text &= "4"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "4"
+            Else
+                txtNumero.Text &= "4"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "5"
-        Else
-            txtNumero.Text &= "5"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "5"
+            Else
+                txtNumero.Text &= "5"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "6"
-        Else
-            txtNumero.Text &= "6"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "6"
+            Else
+                txtNumero.Text &= "6"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "7"
-        Else
-            txtNumero.Text &= "7"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "7"
+            Else
+                txtNumero.Text &= "7"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         If txtNumero.Text = "0" Then
@@ -88,12 +123,16 @@
         End If
     End Sub
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
-        If txtNumero.Text = "0" Then
-            txtNumero.Clear()
-            txtNumero.Text = "9"
-        Else
-            txtNumero.Text &= "9"
-        End If
+        Try
+            If txtNumero.Text = "0" Then
+                txtNumero.Clear()
+                txtNumero.Text = "9"
+            Else
+                txtNumero.Text &= "9"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btnComa_Click(sender As Object, e As EventArgs) Handles btnComa.Click
         Try
@@ -107,7 +146,7 @@
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub btnC_Click(sender As Object, e As EventArgs) Handles btnC.Click
+    Public Sub btnC_Click(sender As Object, e As EventArgs) Handles btnC.Click
         txtNumero.Text = "0"
         txtDetalle.Text = String.Empty
         Operador = 0.0
@@ -132,14 +171,18 @@
         txtDetalle.Text &= num1 & " + "
     End Sub
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
-        If txtDetalle.Text.IndexOf("/") Then
-            txtNumero.Text = "-" & txtNumero.Text
-        Else
+        Try
+            'If txtDetalle.Text.IndexOf("/") Then
+            '    txtNumero.Text = "-" & txtNumero.Text
+            'Else
             Operador = 2
-            num1 = txtNumero.Text
-            txtNumero.Clear()
-            txtDetalle.Text = num1 & " - "
-        End If
+                num1 = txtNumero.Text
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " - "
+            'End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btnMultiplicar_Click(sender As Object, e As EventArgs) Handles btnMultiplicar.Click
         Operador = 3
@@ -186,6 +229,18 @@
                                     txtNumero.Text = Resultado
                                     txtDetalle.Text &= num2
                                 Else
+                                    If Operador = 7 Then
+                                        Resultado = num1 ^ (1 / num2)
+                                        txtNumero.Text = Resultado
+                                        txtDetalle.Text = num2 & txtDetalle.Text
+                                    Else
+                                        If Operador = 8 Then
+                                            Resultado = Math.Round(Math.Log((num2), (num1)))
+                                            txtNumero.Text = Resultado
+                                            txtDetalle.Text &= num2
+                                        Else
+                                        End If
+                                    End If
                                 End If
                             End If
                         End If
@@ -226,60 +281,124 @@
         End Try
     End Sub
     Private Sub btnX2_Click(sender As Object, e As EventArgs) Handles btnX2.Click
-        txtDetalle.Text = "" & txtNumero.Text & "²"
-        txtNumero.Text = txtNumero.Text * txtNumero.Text
+        Try
+            If btnX2.Text = "x²" Then
+                txtDetalle.Text = "" & txtNumero.Text & "²"
+                txtNumero.Text = txtNumero.Text * txtNumero.Text
+            Else
+                txtDetalle.Text = "²√" & txtNumero.Text
+                txtNumero.Text = Math.Sqrt(txtNumero.Text)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btnX3_Click(sender As Object, e As EventArgs) Handles btnX3.Click
-        num1 = txtNumero.Text
-        num1 = num1 * num1 * num1
-        txtDetalle.Text = "cubo(" & txtNumero.Text & ")"
-        txtNumero.Text = num1
+        Try
+            If btnX3.Text = "x³" Then
+                num1 = txtNumero.Text
+                num1 = num1 * num1 * num1
+                txtDetalle.Text = "cubo(" & txtNumero.Text & ")"
+                txtNumero.Text = num1
+            Else
+                txtDetalle.Text = "³√" & txtNumero.Text
+                txtNumero.Text = txtNumero.Text ^ (1 / 3)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btnXY_Click(sender As Object, e As EventArgs) Handles btnXY.Click
-        Operador = 5
-        num1 = txtNumero.Text
-        txtNumero.Clear()
-        txtDetalle.Text = num1 & " ^ "
+        Try
+            If btnXY.Text = "Xʸ" Then
+                Operador = 5
+                num1 = txtNumero.Text
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " ^ "
+            Else
+                Operador = 7
+                num1 = txtNumero.Text
+                txtDetalle.Text = "√" & txtNumero.Text
+                txtNumero.Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btnLog_Click(se8nder As Object, e As EventArgs) Handles btnLog.Click
-        txtDetalle.Text = "Log10(" & txtNumero.Text & ")"
-        txtNumero.Text = Math.Log10(d:=txtNumero.Text)
-    End Sub
-
-    Private Sub btnExp_Click(sender As Object, e As EventArgs) Handles btnExp.Click
-        txtDetalle.Text = "exp" & txtNumero.Text
-        txtNumero.Text = Math.Exp(txtNumero.Text)
+        Try
+            If btnLog.Text = "log" Then
+                txtDetalle.Text = "Log10(" & txtNumero.Text & ")"
+                txtNumero.Text = Math.Log10(d:=txtNumero.Text)
+            Else
+                Operador = 8
+                num1 = txtNumero.Text
+                txtDetalle.Text = num1 & " base log "
+                txtNumero.Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub btn10X_Click(sender As Object, e As EventArgs) Handles btn10X.Click
-        num1 = 10
-        txtDetalle.Text = "10 ^ " & txtNumero.Text
-        num2 = txtNumero.Text
-        txtNumero.Text = num1 ^ num2
+        Try
+            If btn10X.Text = "10ˣ" Then
+                num1 = 10
+                txtDetalle.Text = "10 ^ " & txtNumero.Text
+                num2 = txtNumero.Text
+                txtNumero.Text = num1 ^ num2
+            Else
+                num1 = 2
+                txtDetalle.Text = "2 ^ (" & txtNumero.Text & ")"
+                num2 = txtNumero.Text
+                txtNumero.Text = num1 ^ num2
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub btnLN_Click(sender As Object, e As EventArgs) Handles btnLN.Click
+        Try
+            If btnLN.Text = "ln" Then
+                txtDetalle.Text = "ln(" & txtNumero.Text & ")"
+                txtNumero.Text = Math.Log(txtNumero.Text)
+            Else
+                num1 = Math.E
+                txtDetalle.Text = "e^(" & txtNumero.Text & ")"
+                num2 = txtNumero.Text
+                txtNumero.Text = num1 ^ num2
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btnParIzq_Click(sender As Object, e As EventArgs) Handles btnParIzq.Click
         txtNumero.Text = txtNumero.Text & "("
     End Sub
-
     Private Sub btnParDer_Click(sender As Object, e As EventArgs) Handles btnParDer.Click
         txtNumero.Text = txtNumero.Text & ")"
     End Sub
-    Private Sub btnMod_Click(sender As Object, e As EventArgs) Handles btnMod.Click
-        If txtNumero.Text = "0" Then
-            Operador = 6
-            num1 = 0
-            txtNumero.Clear()
-            txtDetalle.Text = num1 & " mod "
-        Else
-            Operador = 6
-            num1 = txtNumero.Text
-            txtNumero.Clear()
-            txtDetalle.Text = num1 & " mod "
-        End If
+    Private Sub btnExp_Click(sender As Object, e As EventArgs) Handles btnExp.Click
+        txtDetalle.Text = "exp" & txtNumero.Text
+        txtNumero.Text = Math.Exp(txtNumero.Text)
     End Sub
-    Private Sub btnLN_Click(sender As Object, e As EventArgs) Handles btnLN.Click
-        txtDetalle.Text = "ln(" & txtNumero.Text & ")"
-        txtNumero.Text = Math.Log(txtNumero.Text)
+    Private Sub btnMod_Click(sender As Object, e As EventArgs) Handles btnMod.Click
+        Try
+            If txtNumero.Text = "0" Then
+                Operador = 6
+                num1 = 0
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " mod "
+            Else
+                Operador = 6
+                num1 = txtNumero.Text
+                txtNumero.Clear()
+                txtDetalle.Text = num1 & " mod "
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub btnMC_Click(sender As Object, e As EventArgs) Handles btnMC.Click
@@ -298,6 +417,32 @@
         ms = Val(txtNumero.Text)
         txtDetalle.Text = "M"
     End Sub
+
+    Private Sub btnE_Click(sender As Object, e As EventArgs) Handles btnE.Click
+        txtNumero.Text = Math.E
+    End Sub
+
+    Private Sub btnN_Click(sender As Object, e As EventArgs) Handles btnN.Click
+        Dim i As Integer
+        Try
+            num1 = txtNumero.Text
+            num2 = 1
+            For i = 1 To num1
+                num2 = num2 * i
+                txtDetalle.Text = "fact(" & num1 & ")"
+                txtNumero.Text = num2
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnAbs_Click(sender As Object, e As EventArgs) Handles btnAbs.Click
+        num1 = txtNumero.Text
+        txtDetalle.Text = "|" & num1 & "|"
+        txtNumero.Text = Math.Abs(num1)
+    End Sub
+
     Private Sub btnMmas_Click(sender As Object, e As EventArgs) Handles btnMmas.Click
         mmas = Val(txtNumero.Text) + ms
         txtNumero.Text = mmas
@@ -309,12 +454,25 @@
         txtDetalle.Text = "M-"
     End Sub
     Private Sub btn2nd_Click(sender As Object, e As EventArgs) Handles btn2nd.Click
-        If btnX2.Text.IndexOf("x²") Then
-            btnX2.Text = "²√ₓ"
-        Else
-            Exit Sub
-        End If
-
+        Try
+            If btnX2.Text = "x²" Then
+                btnX2.Text = "²√ₓ"
+                btnX3.Text = "³√ₓ"
+                btnXY.Text = "ʸ√ₓ"
+                btn10X.Text = "2ˣ"
+                btnLog.Text = "logyx"
+                btnLN.Text = "eˣ"
+            Else
+                btnX2.Text = "x²"
+                btnX3.Text = "x³"
+                btnXY.Text = "Xʸ"
+                btn10X.Text = "10ˣ"
+                btnLog.Text = "log"
+                btnLN.Text = "ln"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
 

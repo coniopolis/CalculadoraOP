@@ -4,9 +4,11 @@
     Dim Operador As Double
     Dim ms, mmas, mmenos As Double
 
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
+    End Sub
+    Private Sub VerLaAyudaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerLaAyudaToolStripMenuItem.Click
+        MessageBox.Show("Disponible en la proxima version", "Ayuda")
     End Sub
     Private Sub AcerdaDeCalculadoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcerdaDeCalculadoraToolStripMenuItem.Click
         MessageBox.Show("Calculadora de Lautaro Martinez, Mayo 2020", "Acerda de")
@@ -50,6 +52,8 @@
             txtNumero.Text &= "4"
         End If
     End Sub
+
+
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
         If txtNumero.Text = "0" Then
             txtNumero.Clear()
@@ -58,6 +62,8 @@
             txtNumero.Text &= "5"
         End If
     End Sub
+
+
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
         If txtNumero.Text = "0" Then
             txtNumero.Clear()
@@ -66,6 +72,8 @@
             txtNumero.Text &= "6"
         End If
     End Sub
+
+
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
         If txtNumero.Text = "0" Then
             txtNumero.Clear()
@@ -74,6 +82,8 @@
             txtNumero.Text &= "7"
         End If
     End Sub
+
+
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         If txtNumero.Text = "0" Then
             txtNumero.Clear()
@@ -82,6 +92,8 @@
             txtNumero.Text &= "8"
         End If
     End Sub
+
+
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
         If txtNumero.Text = "0" Then
             txtNumero.Clear()
@@ -90,6 +102,8 @@
             txtNumero.Text &= "9"
         End If
     End Sub
+
+
     Private Sub btnComa_Click(sender As Object, e As EventArgs) Handles btnComa.Click
         Try
             If txtNumero.Text.IndexOf(",") > 0 Then 'IndexOf para "ENCONTRAR" si hay coma
@@ -102,6 +116,8 @@
         Catch ex As Exception
         End Try
     End Sub
+
+
     Private Sub btnC_Click(sender As Object, e As EventArgs) Handles btnC.Click
         txtNumero.Text = "0"
         txtDetalle.Text = String.Empty
@@ -109,9 +125,13 @@
         num1 = 0.0
         num2 = 0.0
     End Sub
+
+
     Private Sub btnCE_Click(sender As Object, e As EventArgs) Handles btnCE.Click
         txtNumero.Text = "0"
     End Sub
+
+
     Private Sub btnRetroceso_Click(sender As Object, e As EventArgs) Handles btnRetroceso.Click
         Try
             If txtNumero.Text <> "0" And Len(txtNumero.Text) > 1 Then
@@ -123,6 +143,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
     Private Sub btnSuma_Click(sender As Object, e As EventArgs) Handles btnSuma.Click
         If txtNumero.Text = "" Then
             Exit Sub
@@ -133,29 +155,67 @@
             txtDetalle.Text = num1 & " + "
         End If
     End Sub
+
+
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
-        If txtDetalle.Text.IndexOf("/") Then
-            txtNumero.Text = "-" & txtNumero.Text
-        Else
-            Operador = 2
-            num1 = txtNumero.Text
+        If txtNumero.Text = "0" Then
             txtNumero.Clear()
-            txtDetalle.Text = num1 & " - "
+            txtNumero.Text = "-"
+            btnIgual.Focus()
+            Exit Sub
+        Else
+            If txtDetalle.Text.IndexOf("/") > 0 Then
+                txtNumero.Text = "-" & (txtNumero.Text)
+                btnIgual.Focus()
+                Exit Sub
+
+            Else
+                If txtDetalle.Text.IndexOf("×") > 0 Then
+                    txtNumero.Text = "-" & (txtNumero.Text)
+                    btnIgual.Focus()
+                    Exit Sub
+
+                Else
+                    If txtNumero.Text.IndexOf("-") > 0 Then
+                        Operador = 2
+                        num1 = Val(txtNumero.Text)
+                        txtNumero.Clear()
+                        txtDetalle.Text = num1 & " - "
+                        btnIgual.Focus()
+                    Else
+                        If txtNumero.Text <> "0" Then
+                            Operador = 2
+                            num1 = Val(txtNumero.Text)
+                            txtNumero.Clear()
+                            txtDetalle.Text = num1 & " - "
+                            btnIgual.Focus()
+                        Else
+                        End If
+                    End If
+                End If
+            End If
         End If
     End Sub
+
+
     Private Sub btnMultiplicar_Click(sender As Object, e As EventArgs) Handles btnMultiplicar.Click
         Operador = 3
         num1 = txtNumero.Text
         txtNumero.Clear()
         txtDetalle.Text = num1 & " × "
     End Sub
+
+
     Private Sub btnDivision_Click(sender As Object, e As EventArgs) Handles btnDivision.Click
         Operador = 4
         num1 = txtNumero.Text
         txtNumero.Clear()
         txtDetalle.Text = num1 & " / "
     End Sub
+
+
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
+        num2 = txtNumero.Text
         Try
             If txtNumero.Text = "" Then
                 txtNumero.Text = num1
@@ -163,22 +223,22 @@
                 num2 = txtNumero.Text
 
                 If Operador = 1 Then
-                    Resultado = num1 + num2
+                    Resultado = (num1) + (num2)
                     txtNumero.Text = Resultado
                     txtDetalle.Text &= num2
                 Else
                     If Operador = 2 Then
-                        Resultado = num1 - num2
+                        Resultado = (num1) - (num2)
                         txtNumero.Text = Resultado
                         txtDetalle.Text &= num2
                     Else
                         If Operador = 3 Then
-                            Resultado = num1 * num2
+                            Resultado = (num1) * (num2)
                             txtNumero.Text = Resultado
                             txtDetalle.Text &= num2
                         Else
                             If Operador = 4 Then
-                                Resultado = num1 / num2
+                                Resultado = (num1) / (num2)
                                 txtNumero.Text = Resultado
                                 txtDetalle.Text &= num2
                             Else
@@ -191,6 +251,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
     Private Sub btnRaiz_Click(sender As Object, e As EventArgs) Handles btnRaiz.Click
         Try
             If txtNumero.Text <> "0" Then
@@ -201,6 +263,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
     Private Sub btnSobre_Click(sender As Object, e As EventArgs) Handles btnSobre.Click
         Try
             If txtNumero.Text <> "0" Then
@@ -214,6 +278,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
     Private Sub btnCambioSigno_Click(sender As Object, e As EventArgs) Handles btnCambiarSigno.Click
         Try
             If txtNumero.Text <> "" Then
@@ -251,6 +317,7 @@
         ms = Val(txtNumero.Text)
         txtDetalle.Text = "M"
     End Sub
+
     Private Sub btnMmas_Click(sender As Object, e As EventArgs) Handles btnMmas.Click
         mmas = Val(txtNumero.Text) + ms
         txtNumero.Text = mmas
