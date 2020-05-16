@@ -1,9 +1,5 @@
 ﻿Public Class Estandar
 
-    Dim num1, num2, Resultado As Double
-    Dim Operador As Double
-    Dim ms, mmas, mmenos As Double
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
@@ -13,6 +9,15 @@
     Private Sub AcerdaDeCalculadoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcerdaDeCalculadoraToolStripMenuItem.Click
         MessageBox.Show("Calculadora de Lautaro Martinez, Mayo 2020", "Acerda de")
     End Sub
+
+
+
+    Dim num1, num2, Resultado As Double
+    Dim Operador As Double
+    Dim ms, mmas, mmenos As Double
+
+
+    'Codifico a todos los numeros para que, el primero que se ingrese al ejecutar el programa, borre el 0 inicial
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         If txtNumero.Text <> "0" And txtNumero.Text <> "" Then
             txtNumero.Text &= "0"
@@ -120,8 +125,6 @@
 
     Private Sub btnC_Click(sender As Object, e As EventArgs) Handles btnC.Click
         Try
-
-
             txtNumero.Text = "0"
             txtDetalle.Text = String.Empty
             Operador = 0.0
@@ -161,6 +164,8 @@
         End If
     End Sub
 
+
+    'Codifico de esta manera la operacion resta para poder realizar otras operaciones con numeros negativos
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
         Try
             If txtNumero.Text = "0" Then
@@ -204,6 +209,8 @@
     End Sub
 
 
+
+    'Dentro el btnIgual codifico las distintas operaciones que dependeran de apretar el boton IGUAL
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
         num2 = txtNumero.Text
         Try
@@ -289,6 +296,10 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
+
+    'Configuracion de botones de Memoria
     Private Sub btnMC_Click(sender As Object, e As EventArgs) Handles btnMC.Click
         num1 = 0.0
         num2 = 0.0

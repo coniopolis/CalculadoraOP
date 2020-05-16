@@ -21,6 +21,7 @@
     Dim Operador As Double
     Dim ms, mmas, mmenos As Double
 
+    'Codifico a todos los numeros para que, el primero que se ingrese al ejecutar el programa, borre el 0 inicial
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         Try
             If txtNumero.Text <> "0" And txtNumero.Text <> "" Then
@@ -172,6 +173,8 @@
         txtNumero.Clear()
         txtDetalle.Text = num1 & " + "
     End Sub
+
+    'Codifico de esta manera la operacion resta para poder realizar otras operaciones con numeros negativos
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
         Try
             If txtNumero.Text = "0" Then
@@ -210,6 +213,8 @@
         txtNumero.Clear()
         txtDetalle.Text = num1 & " / "
     End Sub
+
+    'Dentro el btnIgual codifico las distintas operaciones que dependeran de apretar el boton IGUAL
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
         num2 = txtNumero.Text
         Try
@@ -294,6 +299,9 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
+    'Configuro el btnX2 para dos operaciones: potencia al cuadrado y raiz cuadrada
     Private Sub btnX2_Click(sender As Object, e As EventArgs) Handles btnX2.Click
         Try
             If btnX2.Text = "x²" Then
@@ -307,6 +315,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    'Configuro el btnX3 para dos operaciones: potencia al cubo y raiz cubica
     Private Sub btnX3_Click(sender As Object, e As EventArgs) Handles btnX3.Click
         Try
             If btnX3.Text = "x³" Then
@@ -322,6 +332,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    'Configuro el btnxy para dos operaciones: potencia de un numero a otro numero, y la raiz de un numero con otro
     Private Sub btnXY_Click(sender As Object, e As EventArgs) Handles btnXY.Click
         Try
             If btnXY.Text = "xʸ" Then
@@ -339,6 +351,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+    'Configuro el btnLog para dos operaciones: log en base 10 de un numero y la operacion inversa de logaritmo
     Private Sub btnLog_Click(se8nder As Object, e As EventArgs) Handles btnLog.Click
         Try
             If btnLog.Text = "log" Then
@@ -355,6 +368,7 @@
         End Try
     End Sub
 
+    'Configuro el btn10X para dos operaciones: potencia del numero 10 a un numero determinado y potencia del numero 2 a un numero determinado
     Private Sub btn10X_Click(sender As Object, e As EventArgs) Handles btn10X.Click
         Try
             If btn10X.Text = "10ˣ" Then
@@ -372,6 +386,8 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    'Configuro el btnLN para dos operaciones: ln de un numero y potencia de "e" a un determinado numero
     Private Sub btnLN_Click(sender As Object, e As EventArgs) Handles btnLN.Click
         Try
             If btnLN.Text = "ln" Then
@@ -387,16 +403,24 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    'Por ahora solo se insertan los paretensis, me falta codificarlos para usarlos en operaciones
     Private Sub btnParIzq_Click(sender As Object, e As EventArgs) Handles btnParIzq.Click
         txtNumero.Text = txtNumero.Text & "("
     End Sub
     Private Sub btnParDer_Click(sender As Object, e As EventArgs) Handles btnParDer.Click
         txtNumero.Text = txtNumero.Text & ")"
     End Sub
+
+
+
+
     Private Sub btnExp_Click(sender As Object, e As EventArgs) Handles btnExp.Click
         txtDetalle.Text = "exp" & txtNumero.Text
         txtNumero.Text = Math.Exp(txtNumero.Text)
     End Sub
+
+    'MOD de un numero
     Private Sub btnMod_Click(sender As Object, e As EventArgs) Handles btnMod.Click
         Try
             If txtNumero.Text = "0" Then
@@ -415,6 +439,8 @@
         End Try
     End Sub
 
+
+    'Configuracion de botones de Memoria
     Private Sub btnMC_Click(sender As Object, e As EventArgs) Handles btnMC.Click
         num1 = 0.0
         num2 = 0.0
@@ -436,6 +462,7 @@
         txtNumero.Text = Math.E
     End Sub
 
+    'Codigo para factorial
     Private Sub btnN_Click(sender As Object, e As EventArgs) Handles btnN.Click
         Dim i As Integer
         Try
@@ -457,6 +484,7 @@
         txtNumero.Text = Math.Abs(num1)
     End Sub
 
+    'Agrego combo box para funciones trigonometricas. El codigo se arma en otra funcion
     Private Sub cbTrigo_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbTrigo.SelectedIndexChanged
         Trigonometria()
     End Sub
@@ -476,6 +504,7 @@
 
     End Sub
 
+    'Codifico el boton 2nd para alternas entre operaciones de potencias y raices
     Private Sub btn2nd_Click(sender As Object, e As EventArgs) Handles btn2nd.Click
         Try
             If btnX2.Text = "x²" Then
@@ -562,6 +591,7 @@
         End Select
     End Sub
 
+    'Codigo para alternar entre las distintas operaciones trigonometricas
     Public Sub Trigonometria()
         If cbTrigo.Text = "hyp" Then
             cbTrigo.Items.Clear()
@@ -598,6 +628,8 @@
         FuncionesTrigonometricas()
     End Sub
 
+
+    'Codigo que desarolla cada operacion trigonometrica
     Public Sub FuncionesTrigonometricas()
         If cbTrigo.Text = "sin" Then
             txtDetalle.Text = "sin₀(" & txtNumero.Text & ")"
