@@ -322,12 +322,12 @@
     End Sub
     Private Sub btnXY_Click(sender As Object, e As EventArgs) Handles btnXY.Click
         Try
-            If btnXY.Text = "Xʸ" Then
+            If btnXY.Text = "xʸ" Then
                 Operador = 5
                 num1 = txtNumero.Text
                 txtNumero.Clear()
                 txtDetalle.Text = num1 & " ^ "
-            Else
+            ElseIf btnXY.Text = "ʸ√ₓ" Then
                 Operador = 7
                 num1 = txtNumero.Text
                 txtDetalle.Text = "√" & txtNumero.Text
