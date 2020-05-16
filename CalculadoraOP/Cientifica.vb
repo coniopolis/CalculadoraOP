@@ -613,11 +613,11 @@
 
         ElseIf cbTrigo.Text = "sec" Then
             txtDetalle.Text = "sec₀(" & txtNumero.Text & ")"
-            txtNumero.Text = 1 / (Math.Sin(txtNumero.Text))
+            txtNumero.Text = 1 / (Math.Cos(txtNumero.Text))
 
         ElseIf cbTrigo.Text = "csc" Then
             txtDetalle.Text = "csc₀(" & txtNumero.Text & ")"
-            txtNumero.Text = 1 / (Math.Cos(txtNumero.Text))
+            txtNumero.Text = 1 / (Math.Sin(txtNumero.Text))
 
         ElseIf cbTrigo.Text = "cot" Then
             txtDetalle.Text = "cot₀(" & txtNumero.Text & ")"
