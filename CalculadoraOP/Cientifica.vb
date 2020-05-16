@@ -4,12 +4,6 @@
         Estandar.Show()
         Me.Close()
     End Sub
-
-    Dim num1, num2, Resultado As Double
-    Dim Operador As Double
-    Dim ms, mmas, mmenos As Double
-
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
@@ -19,6 +13,14 @@
     Private Sub AcerdaDeCalculadoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcerdaDeCalculadoraToolStripMenuItem.Click
         MessageBox.Show("Calculadora de Lautaro Martinez, Mayo 2020, Version 1.2", "Acerda de")
     End Sub
+
+
+
+
+    Dim num1, num2, Resultado As Double
+    Dim Operador As Double
+    Dim ms, mmas, mmenos As Double
+
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         Try
             If txtNumero.Text <> "0" And txtNumero.Text <> "" Then
@@ -322,12 +324,12 @@
     End Sub
     Private Sub btnXY_Click(sender As Object, e As EventArgs) Handles btnXY.Click
         Try
-            If btnXY.Text = "Xʸ" Then
+            If btnXY.Text = "xʸ" Then
                 Operador = 5
                 num1 = txtNumero.Text
                 txtNumero.Clear()
                 txtDetalle.Text = num1 & " ^ "
-            Else
+            ElseIf btnXY.Text = "ʸ√ₓ" Then
                 Operador = 7
                 num1 = txtNumero.Text
                 txtDetalle.Text = "√" & txtNumero.Text
@@ -455,6 +457,10 @@
         txtNumero.Text = Math.Abs(num1)
     End Sub
 
+    Private Sub cbTrigo_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbTrigo.SelectedIndexChanged
+        Trigonometria()
+    End Sub
+
     Private Sub btnMmas_Click(sender As Object, e As EventArgs) Handles btnMmas.Click
         mmas = Val(txtNumero.Text) + ms
         txtNumero.Text = mmas
@@ -465,6 +471,11 @@
         txtNumero.Text = mmenos
         txtDetalle.Text = "M-"
     End Sub
+
+    Private Sub cbFuncion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFuncion.SelectedIndexChanged
+
+    End Sub
+
     Private Sub btn2nd_Click(sender As Object, e As EventArgs) Handles btn2nd.Click
         Try
             If btnX2.Text = "x²" Then
@@ -550,4 +561,117 @@
                 btnComa.PerformClick()
         End Select
     End Sub
+
+    Public Sub Trigonometria()
+        If cbTrigo.Text = "hyp" Then
+            cbTrigo.Items.Clear()
+            cbTrigo.Items.Add("Δ Trigonometria")
+            'cbTrigo.Items.Add("2nd")
+            cbTrigo.Items.Add("sinh")
+            cbTrigo.Items.Add("cosh")
+            cbTrigo.Items.Add("tanh")
+            cbTrigo.Items.Add("sech")
+            cbTrigo.Items.Add("csch")
+            cbTrigo.Items.Add("coth")
+            'ElseIf cbTrigo.Text = "2nd" Then
+            '    cbTrigo.Items.Clear()
+            '    cbTrigo.Items.Add("Δ Trigonometria")
+            '    cbTrigo.Items.Add("hyp")
+            '    cbTrigo.Items.Add("sin¯¹")
+            '    cbTrigo.Items.Add("cos¯¹")
+            '    cbTrigo.Items.Add("tan¯¹")
+            '    cbTrigo.Items.Add("sec¯¹")
+            '    cbTrigo.Items.Add("csc¯¹")
+            '    cbTrigo.Items.Add("cot¯¹")
+        ElseIf cbTrigo.Text = "Δ Trigonometria" Then
+            cbTrigo.Items.Clear()
+            'cbTrigo.Items.Add("2nd")
+            cbTrigo.Items.Add("hyp")
+            cbTrigo.Items.Add("sin")
+            cbTrigo.Items.Add("cos")
+            cbTrigo.Items.Add("tan")
+            cbTrigo.Items.Add("sec")
+            cbTrigo.Items.Add("csc")
+            cbTrigo.Items.Add("cot")
+        End If
+
+        FuncionesTrigonometricas()
+    End Sub
+
+    Public Sub FuncionesTrigonometricas()
+        If cbTrigo.Text = "sin" Then
+            txtDetalle.Text = "sin₀(" & txtNumero.Text & ")"
+            txtNumero.Text = Math.Sin(txtNumero.Text)
+
+        ElseIf cbTrigo.Text = "cos" Then
+            txtDetalle.Text = "cos₀(" & txtNumero.Text & ")"
+            txtNumero.Text = Math.Cos(txtNumero.Text)
+
+        ElseIf cbTrigo.Text = "tan" Then
+            txtDetalle.Text = "tan₀(" & txtNumero.Text & ")"
+            txtNumero.Text = Math.Tan(txtNumero.Text)
+
+        ElseIf cbTrigo.Text = "sec" Then
+            txtDetalle.Text = "sec₀(" & txtNumero.Text & ")"
+            txtNumero.Text = 1 / (Math.Cos(txtNumero.Text))
+
+        ElseIf cbTrigo.Text = "csc" Then
+            txtDetalle.Text = "csc₀(" & txtNumero.Text & ")"
+            txtNumero.Text = 1 / (Math.Sin(txtNumero.Text))
+
+        ElseIf cbTrigo.Text = "cot" Then
+            txtDetalle.Text = "cot₀(" & txtNumero.Text & ")"
+            txtNumero.Text = 1 / (Math.Tan(txtNumero.Text))
+
+        ElseIf cbTrigo.Text = "sinh" Then
+            txtDetalle.Text = "sinh(" & txtNumero.Text & ")"
+            txtNumero.Text = Math.Sinh(txtNumero.Text)
+
+        ElseIf cbTrigo.Text = "cosh" Then
+            txtDetalle.Text = "cosh(" & txtNumero.Text & ")"
+            txtNumero.Text = Math.Cosh(txtNumero.Text)
+
+        ElseIf cbTrigo.Text = "tanh" Then
+            txtDetalle.Text = "tanh(" & txtNumero.Text & ")"
+            txtNumero.Text = Math.Tanh(txtNumero.Text)
+
+        ElseIf cbTrigo.Text = "sech" Then
+            txtDetalle.Text = "sech(" & txtNumero.Text & ")"
+            txtNumero.Text = 1 / (Math.Sinh(txtNumero.Text))
+
+        ElseIf cbTrigo.Text = "csch" Then
+            txtDetalle.Text = "csch(" & txtNumero.Text & ")"
+            txtNumero.Text = 1 / (Math.Cosh(txtNumero.Text))
+
+        ElseIf cbTrigo.Text = "coth" Then
+            txtDetalle.Text = "coth(" & txtNumero.Text & ")"
+            txtNumero.Text = 1 / (Math.Tanh(txtNumero.Text))
+
+            'ElseIf cbTrigo.Text = "sin¯¹" Then
+            '    txtDetalle.Text = "sin₀¯¹(" & txtNumero.Text & ")"
+            '    txtNumero.Text = Math.Asin(txtNumero.Text)
+
+            'ElseIf cbTrigo.Text = "cos¯¹" Then
+            '    txtDetalle.Text = "cos₀¯¹(" & txtNumero.Text & ")"
+            '    txtNumero.Text = Math.Acos(txtNumero.Text)
+
+            'ElseIf cbTrigo.Text = "tan¯¹" Then
+            '    txtDetalle.Text = "tan₀¯¹(" & txtNumero.Text & ")"
+            '    txtNumero.Text = Math.Tan(txtNumero.Text)
+
+            'ElseIf cbTrigo.Text = "sec¯¹" Then
+            '    txtDetalle.Text = "sec₀¯¹(" & txtNumero.Text & ")"
+            '    txtNumero.Text = 1 / (Math.Sin(txtNumero.Text))
+
+            'ElseIf cbTrigo.Text = "csc¯¹" Then
+            '    txtDetalle.Text = "csc₀¯¹(" & txtNumero.Text & ")"
+            '    txtNumero.Text = 1 / (Math.Cos(txtNumero.Text))
+
+            'ElseIf cbTrigo.Text = "cot¯¹" Then
+            '    txtDetalle.Text = "cot₀¯¹(" & txtNumero.Text & ")"
+            '    txtNumero.Text = 1 / (Math.(txtNumero.Text))
+
+        End If
+    End Sub
+
 End Class

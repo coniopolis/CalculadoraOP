@@ -205,39 +205,32 @@
 
 
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
+        num2 = txtNumero.Text
         Try
-
             If txtNumero.Text = "" Then
                 txtDetalle.Text &= txtDetalle.Text
+                txtNumero.Text = num1
             Else
-                num2 = txtNumero.Text
-
-                If txtNumero.Text = "" Then
-                    txtNumero.Text = num1
+                If Operador = 1 Then
+                    Resultado = (num1) + (num2)
+                    txtNumero.Text = Resultado
+                    txtDetalle.Text &= num2
                 Else
-                    num2 = txtNumero.Text
-
-                    If Operador = 1 Then
-                        Resultado = (num1) + (num2)
+                    If Operador = 2 Then
+                        Resultado = (num1) - (num2)
                         txtNumero.Text = Resultado
                         txtDetalle.Text &= num2
                     Else
-                        If Operador = 2 Then
-                            Resultado = (num1) - (num2)
+                        If Operador = 3 Then
+                            Resultado = (num1) * (num2)
                             txtNumero.Text = Resultado
                             txtDetalle.Text &= num2
                         Else
-                            If Operador = 3 Then
-                                Resultado = (num1) * (num2)
+                            If Operador = 4 Then
+                                Resultado = (num1) / (num2)
                                 txtNumero.Text = Resultado
                                 txtDetalle.Text &= num2
                             Else
-                                If Operador = 4 Then
-                                    Resultado = (num1) / (num2)
-                                    txtNumero.Text = Resultado
-                                    txtDetalle.Text &= num2
-                                Else
-                                End If
                             End If
                         End If
                     End If
