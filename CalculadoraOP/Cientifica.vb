@@ -211,48 +211,55 @@
         txtDetalle.Text = num1 & " / "
     End Sub
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
-        num2 = txtNumero.Text
+
         Try
-            If Operador = 1 Then
-                Resultado = num1 + num2
-                txtNumero.Text = Resultado
-                txtDetalle.Text &= num2
+            num2 = txtNumero.Text
+
+            If txtNumero.Text = "" Then
+                txtDetalle.Text &= txtDetalle.Text
+                txtNumero.Text = num1
             Else
-                If Operador = 2 Then
-                    Resultado = num1 - num2
+                If Operador = 1 Then
+                    Resultado = num1 + num2
                     txtNumero.Text = Resultado
                     txtDetalle.Text &= num2
                 Else
-                    If Operador = 3 Then
-                        Resultado = num1 * num2
+                    If Operador = 2 Then
+                        Resultado = num1 - num2
                         txtNumero.Text = Resultado
                         txtDetalle.Text &= num2
                     Else
-                        If Operador = 4 Then
-                            Resultado = num1 / num2
+                        If Operador = 3 Then
+                            Resultado = num1 * num2
                             txtNumero.Text = Resultado
                             txtDetalle.Text &= num2
                         Else
-                            If Operador = 5 Then
-                                Resultado = num1 ^ num2
+                            If Operador = 4 Then
+                                Resultado = num1 / num2
                                 txtNumero.Text = Resultado
                                 txtDetalle.Text &= num2
                             Else
-                                If Operador = 6 Then
-                                    Resultado = num1 Mod num2
+                                If Operador = 5 Then
+                                    Resultado = num1 ^ num2
                                     txtNumero.Text = Resultado
                                     txtDetalle.Text &= num2
                                 Else
-                                    If Operador = 7 Then
-                                        Resultado = num1 ^ (1 / num2)
+                                    If Operador = 6 Then
+                                        Resultado = num1 Mod num2
                                         txtNumero.Text = Resultado
-                                        txtDetalle.Text = num2 & txtDetalle.Text
+                                        txtDetalle.Text &= num2
                                     Else
-                                        If Operador = 8 Then
-                                            Resultado = Math.Round(Math.Log((num2), (num1)))
+                                        If Operador = 7 Then
+                                            Resultado = num1 ^ (1 / num2)
                                             txtNumero.Text = Resultado
-                                            txtDetalle.Text &= num2
+                                            txtDetalle.Text = num2 & txtDetalle.Text
                                         Else
+                                            If Operador = 8 Then
+                                                Resultado = Math.Round(Math.Log((num2), (num1)))
+                                                txtNumero.Text = Resultado
+                                                txtDetalle.Text &= num2
+                                            Else
+                                            End If
                                         End If
                                     End If
                                 End If
@@ -261,6 +268,7 @@
                     End If
                 End If
             End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

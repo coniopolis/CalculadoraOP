@@ -205,8 +205,11 @@
 
 
     Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
-        num2 = txtNumero.Text
+
         Try
+
+            num2 = txtNumero.Text
+
             If txtNumero.Text = "" Then
                 txtDetalle.Text &= txtDetalle.Text
                 txtNumero.Text = num1
